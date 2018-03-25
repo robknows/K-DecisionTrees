@@ -24,3 +24,9 @@ id3recurse:{[c;f;d]
   branch:{[c;f;A;d;v]id3[c;.q.except[f;A];project[d;A;v]]}[c;f;A;d;];
   m:v!branch'v:?d[A];
   `attribute`mapping!(A;m)}
+
+// Classify a (f)eature dictionary using a built decision (t)ree.
+classify:{[t;f]
+  branch:f t[`attribute];
+  child:t[`mapping] branch;
+  $[99h=@:child;classify[child;f];child]}
