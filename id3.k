@@ -18,10 +18,10 @@ nodeattr:{[c;f;d]atargmax[IG[c;d;]'f;f]}
 
 // For the given (d)ataset, a table, use the (f)eature columns to build a
 // decision tree for the given (c)lassification column.
-id3:{[c;f;d]$[1=#?d[c];*:d[c];id3recurse[c;f;d]]}
-id3recurse:{[c;f;d]
+build:{[c;f;d]$[1=#?d[c];*:d[c];buildrecurse[c;f;d]]}
+buildrecurse:{[c;f;d]
   A:nodeattr[c;f;d];
-  branch:{[c;f;A;d;v]id3[c;.q.except[f;A];project[d;A;v]]}[c;f;A;d;];
+  branch:{[c;f;A;d;v]build[c;.q.except[f;A];project[d;A;v]]}[c;f;A;d;];
   m:v!branch'v:?d[A];
   `attribute`mapping!(A;m)}
 
