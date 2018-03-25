@@ -10,7 +10,13 @@ column. For example, the playtennis table.
 2. Choose the feature columns you want to build the classifier using, as
 well as the column which contains the classifications.
 
-3. Run `.id3.id3[classificationColName;featureColNames;table]`
+3. Run `tree:.id3.build[classificationColName;featureColNames;table]` to
+build a tree and assign it to a variable with an unsurprising name.
+
+4. Run `class:.id3.classify[featureDictionary;tree]` to classify an unseen
+feature dictionary. This is just any dictionary with keys matching those used
+to build the tree. Note that this can be run against a table of unseen data
+points.
 
 ## Example
 
@@ -51,5 +57,24 @@ high  | no
 normal| yes
 q)t[`mapping;`sunny;`mapping;`normal]
 `yes
+q)
+```
+
+And then, using unseen data points, feature dictionaries, like this...:
+
+```
+q)forecast
+outlook | sunny
+temp    | hot
+humidity| high
+wind    | weak
+q)
+```
+
+...predicted classifications, like this:
+
+```
+q).id3.classify[tree;forecast]
+`no
 q)
 ```
