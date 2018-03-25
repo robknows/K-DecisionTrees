@@ -13,7 +13,7 @@ well as the column which contains the classifications.
 3. Run `tree:.id3.build[classificationColName;featureColNames;table]` to
 build a tree and assign it to a variable with an unsurprising name.
 
-4. Run `class:.id3.classify[featureDictionary;tree]` to classify an unseen
+4. Run `class:.id3.classify[tree;featureDictionary]` to classify an unseen
 feature dictionary. This is just any dictionary with keys matching those used
 to build the tree. Note that this can be run against a table of unseen data
 points.
