@@ -1,4 +1,4 @@
-# Q Decision Trees
+# K Decision Trees
 
 - An ID3 implementation with a simple API.
 
