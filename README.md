@@ -18,6 +18,9 @@ feature dictionary. This is just any dictionary with keys matching those used
 to build the tree. Note that this can be run against a table of unseen data
 points.
 
+Note: The table used to build the tree does not work with strings as inputs,
+it works with symbols though.
+
 ## Example
 
 Input: A table, such as this one:
